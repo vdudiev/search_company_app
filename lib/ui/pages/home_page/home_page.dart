@@ -36,7 +36,10 @@ class HomePage extends StatelessWidget {
                 BlocBuilder<HomeBloc, HomeState>(
                   builder: (context, state) {
                     if (state is HomeLoadingState) {
-                      return const CircularProgressIndicator();
+                      return const Padding(
+                        padding: EdgeInsets.only(top: 50),
+                        child: CircularProgressIndicator(),
+                      );
                     }
                     if (state is HomeErrorState) {
                       return CustomErrorWidget(
@@ -45,7 +48,10 @@ class HomePage extends StatelessWidget {
                       );
                     }
                     if (state is HomeEmptyState || state is HomeInitState) {
-                      return const Text('Пусто');
+                      return const Padding(
+                        padding: EdgeInsets.only(top: 50),
+                        child: Text('Пусто'),
+                      );
                     }
                     return Expanded(
                       child: Column(
